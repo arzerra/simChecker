@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = () => {
+const SearchButton = () => {
   return (
     <StyledWrapper>
       <button className="button">
@@ -135,4 +135,4 @@ const StyledWrapper = styled.div`
     outline: none;
   }`;
 
-export default Button;
+export default SearchButton;
