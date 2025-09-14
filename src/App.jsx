@@ -129,7 +129,7 @@
 
     return (
       <>
-      <div className="w-full h-screen bg-[url('/bg.png')] bg-cover bg-center h-screen flex flex-col items-center justify-center">
+      <div className="w-full h-screen bg-[url('/bg.png')] bg-cover bg-center flex flex-col items-center justify-center">
       
         <div className="max-w-[1200px] w-full flex items-center justify-center mt-10">
           <div className="border-10 border-[#A1C2BD] w-[500px] h-[600px] rounded-2xl shadow-xl bg-gradient-to-b from-[#F0F0F0] to-[#E7F2EF] m-5 sm:m-0">
