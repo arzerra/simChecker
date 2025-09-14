@@ -84,7 +84,7 @@
 
   const carrierLogos = {
     Globe: "/logos/globe.png",
-    Smart: "/logos/smart.png",
+    Smart: "/logos/smart1.png",
     Dito: "/logos/dito.png",
     Sun: "/logos/sun.png",
     Cherry: "/logos/cherry.png",
@@ -128,52 +128,63 @@
     };
 
     return (
-      <div className="max-w-[1200px] w-full mx-auto h-screen flex flex-col items-center justify-center">
-        <h1 className="text-5xl mb-10">Who’s My Carrier?</h1>
+      <>
+      <div className="w-full h-screen bg-[url('/bg.png')] bg-cover bg-center h-screen flex flex-col items-center justify-center">
+      
+        <div className="max-w-[1200px] w-full flex items-center justify-center mt-10">
+          <div className="border-10 border-[#A1C2BD] w-[500px] h-[600px] rounded-2xl shadow-xl bg-gradient-to-b from-[#F0F0F0] to-[#E7F2EF] m-5 sm:m-0">
+          <div className="flex items-center justify-center mt-10">
+            <h1 className="text-4xl bg-[#19183B] bg-clip-text text-transparent">Who's My Carrier?</h1>
+          </div>
 
-        {carrier && !error && (
-          <div className="mt-10">
-            {carrierLogos[carrier] ? (
+          <div className="flex items-center justify-center">
+            <div className="mt-5 w-60 h-60 flex items-center justify-center">
               <img
-                src={carrierLogos[carrier]}
-                alt={carrier}
-                className="w-32 h-20 object-contain"
+                src={carrier && !error && carrierLogos[carrier] ? carrierLogos[carrier] : "/placeholder.png"}
+                alt={carrier || "Placeholder"}
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.currentTarget.src = "/placeholder.png";
+                }}
               />
-            ) : (
-              <p className="text-gray-600">Carrier not found</p>
-            )}
+            </div>
           </div>
-        )}
+            
+              {error && <p className="mt-2 text-red-500 text-sm flex items-center justify-center">{error}</p>}
+            <div className="flex items-center justify-center">
+              <form onSubmit={handleSubmit} className="flex items-center gap-2 mt-5">
+                  <div className="relative flex items-center bg-[#222222] rounded-md">
+                  <input
+                    placeholder="e.g. 09xxxxxxxxx"
+                    type="tel"
+                    value={phoneNumber}
+                    onChange={handleChange}
+                    className="w-[250px] h-[50px] border-2 border-[#212121] rounded-lg px-4
+                  text-[#212121] bg-[#e8e8e8] text-[16px] font-bold font-sans
+                  transition-transform duration-100 ease-[cubic-bezier(0.33,1,0.68,1)]
+                  focus:outline-none focus:-translate-y-[2px] placeholder:text-[#646464]
+                  placeholder:font-bold placeholder:text-[16px] placeholder:font-sans"
 
+                  />
+                  </div>
+              </form>
+            </div>
 
+            <form onSubmit={handleSubmit}>
+              <div className="flex items-center justify-center flex-row gap-3 mt-10">
+                <SearchButton />
+                  <ClearButton 
+                    setPhoneNumber={setPhoneNumber} 
+                    setCarrier={setCarrier} 
+                    setError={setError} 
+                  />
+              </div>
+            </form>
 
-        <form onSubmit={handleSubmit} className="flex items-center gap-2 mt-5">
-          <div className="relative flex items-center bg-[#222222] rounded-md">
-          <input
-            placeholder="e.g. 09xxxxxxxxx"
-            type="tel"
-            value={phoneNumber}
-            onChange={handleChange}
-            className="w-[400px] h-[70px] border-4 border-[#212121] rounded-xl px-8 
-                      text-[#212121] bg-[#e8e8e8] text-[20px] font-bold font-sans 
-                      transition-transform duration-100 ease-[cubic-bezier(0.33,1,0.68,1)]
-                      focus:outline-none focus:-translate-y-[4px] placeholder:text-[#646464]
-                      placeholder:font-bold placeholder:text-[20px] placeholder:font-sans"
-          />
           </div>
-          <div className="flex flex-row gap-3">
-            <SearchButton />
-              <ClearButton 
-                setPhoneNumber={setPhoneNumber} 
-                setCarrier={setCarrier} 
-                setError={setError} 
-              />
-          </div>
-        </form>
-                {error && <p className="mt-2 text-red-500 text-2xl">{error}</p>}
-
-
+        </div>
       </div>
+      </>
     );
   }
 
