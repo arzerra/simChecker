@@ -132,7 +132,7 @@
       <div className="w-full h-screen bg-[url('/bg.png')] bg-cover bg-center flex flex-col items-center justify-center">
       
         <div className="max-w-[1200px] w-full flex items-center justify-center mt-10">
-          <div className="border-10 border-[#A1C2BD] w-[500px] h-[600px] rounded-2xl shadow-xl bg-gradient-to-b from-[#F0F0F0] to-[#E7F2EF] m-5 sm:m-0">
+          <div className="w-[500px] h-[600px] rounded-2xl shadow-2xl bg-[#E7F2EF] m-5 sm:m-0">
           <div className="flex items-center justify-center mt-10">
             <h1 className="text-4xl bg-[#19183B] bg-clip-text text-transparent">Who's My Carrier?</h1>
           </div>
@@ -160,7 +160,7 @@
                     value={phoneNumber}
                     onChange={handleChange}
                     className="w-[250px] h-[50px] border-2 border-[#212121] rounded-lg px-4
-                  text-[#212121] bg-[#e8e8e8] text-[16px] font-bold font-sans
+                  text-[#212121] bg-[#E7F2EF] text-[16px] font-bold font-sans
                   transition-transform duration-100 ease-[cubic-bezier(0.33,1,0.68,1)]
                   focus:outline-none focus:-translate-y-[2px] placeholder:text-[#646464]
                   placeholder:font-bold placeholder:text-[16px] placeholder:font-sans"
